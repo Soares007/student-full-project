@@ -10,8 +10,8 @@ public class StudentMapper {
         Student student = new Student();
         student.setName(request.name());
         student.setCpf(request.cpf());
-        student.setSemestre(request.semestre());
-        student.setTurma(request.turma());
+        student.setSemester(request.semester());
+        student.setSchool_class(request.school_class());
         return student;
     }
 
@@ -20,8 +20,8 @@ public class StudentMapper {
                 student.getId(),
                 student.getName(),
                 student.getCpf(),
-                student.getSemestre(),
-                student.getTurma()
+                student.getSemester(),
+                student.getSchool_class()
         );
     }
 }

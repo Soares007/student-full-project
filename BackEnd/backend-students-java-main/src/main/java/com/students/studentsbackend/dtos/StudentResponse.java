@@ -4,8 +4,8 @@ public record StudentResponse(
     long id,
     String name,
     String cpf,
-    String semestre,
-    String turma
+    String semester,
+    String school_class
 )  {
     
 }

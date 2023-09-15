@@ -1,7 +1,7 @@
 export interface Estudante {
   id: number;
   name: string;
-  turma: string;
+  school_class: string;
   cpf: number;
-  semestre: number;
+  semester: number;
 }

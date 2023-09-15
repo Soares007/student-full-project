@@ -23,11 +23,10 @@ export class EstudanteFormComponent implements OnChanges {
 
   ) {
     this.formGroupEstudante = formBuilder.group({
-      id: [''],
       name: ['', Validators.required],
-      turma: ['', Validators.required],
+      school_class: ['', Validators.required],
       cpf: ['', Validators.required],
-      semestre: ['', Validators.required]
+      semester: ['', Validators.required]
     });
   }
 
@@ -53,13 +52,13 @@ export class EstudanteFormComponent implements OnChanges {
   get name(): any {
     return this.formGroupEstudante.get("name");
   }
-  get turma(): any {
-    return this.formGroupEstudante.get("turma");
+  get school_class(): any {
+    return this.formGroupEstudante.get("school_class");
   }
   get cpf(): any {
     return this.formGroupEstudante.get("cpf");
   }
-  get semestre(): any {
-    return this.formGroupEstudante.get("semestre");
+  get semester(): any {
+    return this.formGroupEstudante.get("semester");
   }
 }

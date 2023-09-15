@@ -14,8 +14,8 @@
     <tr *ngFor="let estudante of estudantes">
       <th scope="row">{{estudante.id}}</th>
       <td>{{estudante.name}}</td>
-      <td>{{estudante.turma}}</td>
-      <td>{{estudante.semestre}}</td>
+      <td>{{estudante.school_class}}</td>
+      <td>{{estudante.semester}}</td>
       <td>{{estudante.cpf}}</td>
       <td>
         <button class="btn btn-primary me-2" (click)="edit(estudante)">Editar</button>

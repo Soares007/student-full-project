@@ -12,10 +12,10 @@ public record StudentRequest(
     String cpf,
 
     @NotBlank(message = "Semestre não pode ser em branco")
-    String semestre,
+    String semester,
 
     @NotBlank(message = "Turma não pode ser em branco")
-    String turma
+    String school_class
 ) {
     
 }
