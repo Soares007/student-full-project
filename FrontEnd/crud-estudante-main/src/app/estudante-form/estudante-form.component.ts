@@ -23,6 +23,7 @@ export class EstudanteFormComponent implements OnChanges {
 
   ) {
     this.formGroupEstudante = formBuilder.group({
+      id:[],
       name: ['', Validators.required],
       school_class: ['', Validators.required],
       cpf: ['', Validators.required],

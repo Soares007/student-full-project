@@ -13,6 +13,8 @@ export class EstudanteComponent implements OnInit {
   estudantes: Estudante[] = [];
   student: Estudante = {} as Estudante;
   isEditing: boolean = false;
+  isSubmitted: boolean = false;
+
   constructor(private EstudantesService: EstudantesService) {
   }
 
@@ -26,7 +28,9 @@ export class EstudanteComponent implements OnInit {
     });
   }
 
-  onCleanEvent(){
+  onCleanEvent() {
+    this.student = {} as Estudante;
+    this.isSubmitted = false;
     this.isEditing = false;
   }
 
@@ -37,32 +41,32 @@ export class EstudanteComponent implements OnInit {
           next: () => {
             this.loadEstudantes();
             this.isEditing = false;
+            this.isSubmitted = true;
           }
-
         }
       );
-    }
-    else {
+    } else {
       this.EstudantesService.save(student).subscribe(
         {
           next: data => {
-            this.estudantes.push(data)
+            this.estudantes.push(data);
+            this.isSubmitted = false;
           }
         }
       );
     }
-}
+  }
 
-edit(Estudante: Estudante) {
-  this.student = Estudante;
-  this.isEditing = true;
-}
+  edit(estudante: Estudante) {
+    this.student = estudante;
+    this.isEditing = true;
+  }
 
-delete(student: Estudante) {
-  this.EstudantesService.delete(student).subscribe(
-    {
-      next: () => this.loadEstudantes()
-    }
-  );
-}
+  delete(student: Estudante) {
+    this.EstudantesService.delete(student).subscribe(
+      {
+        next: () => this.loadEstudantes()
+      }
+    );
+  }
 }
