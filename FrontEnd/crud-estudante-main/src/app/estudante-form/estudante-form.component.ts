@@ -32,7 +32,9 @@ export class EstudanteFormComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.formGroupEstudante.setValue(this.student);
+    if(this.student.id){
+      this.formGroupEstudante.setValue(this.student);
+    }
   }
 
   save() {
