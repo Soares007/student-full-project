@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-8 m-auto">
-    <form [formGroup]="formGroupEstudante">
+    <form [formGroup]="formGroupStudent">
       <div class="mb-3">
         <div class="display-6 text-center">
           Cadastro de Estudantes
@@ -29,14 +29,14 @@
       </div>
       <div class="mb-3">
         <label for="semester" class="form-label">Semestre:</label>
-        <input type="text" formControlName="semester" class="form-control" id="semester" placeholder="Seu semester">
+        <input type="text" formControlName="semester" class="form-control" id="semester" placeholder="Seu semestre">
         <div *ngIf="submitted && semester.invalid">
           <small class="text-danger">Semestre inválido!</small>
         </div>
       </div>
       <div class="mb-3 d-flex justify-content-end gap-2">
         <button class="btn btn-success" (click)="save()">Salvar</button>
-        <button class="btn btn-danger" (click)="limparDados()">Limpar</button>
+        <button class="btn btn-danger" (click)="clear()">Limpar</button>
       </div>
     </form>
   </div>

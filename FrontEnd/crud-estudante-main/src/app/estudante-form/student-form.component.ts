@@ -1,28 +1,29 @@
-import { Estudante } from './../estudantes';
+import { Student } from '../students';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-estudante-form',
-  templateUrl: './estudante-form.component.html',
-  styleUrls: ['./estudante-form.component.css']
+  selector: 'app-student-form',
+  templateUrl: './student-form.component.html',
+  styleUrls: ['./student-form.component.css']
 })
-export class EstudanteFormComponent implements OnChanges {
+export class StudentFormComponent implements OnChanges {
 
   @Input()
-  student: Estudante = {} as Estudante;
+  student: Student = {} as Student;
 
   @Output()
-  saveEvent = new EventEmitter<Estudante>();
+  saveEvent = new EventEmitter<Student>();
+
   @Output()
   cleanEvent = new EventEmitter<void>();
 
- formGroupEstudante: FormGroup;
+ formGroupStudent: FormGroup;
  submitted: boolean = false;
   constructor(private formBuilder: FormBuilder
 
   ) {
-    this.formGroupEstudante = formBuilder.group({
+    this.formGroupStudent = formBuilder.group({
       id:[],
       name: ['', Validators.required],
       school_class: ['', Validators.required],
@@ -33,35 +34,35 @@ export class EstudanteFormComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(this.student.id){
-      this.formGroupEstudante.setValue(this.student);
+      this.formGroupStudent.setValue(this.student);
     }
   }
 
   save() {
     this.submitted = true;
-    if (this.formGroupEstudante.valid) {
-      this.saveEvent.emit(this.formGroupEstudante.value);
-      this.formGroupEstudante.reset();
+    if (this.formGroupStudent.valid) {
+      this.saveEvent.emit(this.formGroupStudent.value);
+      this.formGroupStudent.reset();
       this.submitted = false;
     }
   }
 
-  limparDados() {
+  clear() {
     this.cleanEvent.emit();
-    this.formGroupEstudante.reset();
+    this.formGroupStudent.reset();
     this.submitted = false;
   }
 
   get name(): any {
-    return this.formGroupEstudante.get("name");
+    return this.formGroupStudent.get("name");
   }
   get school_class(): any {
-    return this.formGroupEstudante.get("school_class");
+    return this.formGroupStudent.get("school_class");
   }
   get cpf(): any {
-    return this.formGroupEstudante.get("cpf");
+    return this.formGroupStudent.get("cpf");
   }
   get semester(): any {
-    return this.formGroupEstudante.get("semester");
+    return this.formGroupStudent.get("semester");
   }
 }

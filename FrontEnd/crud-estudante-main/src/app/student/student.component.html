@@ -1,0 +1,26 @@
+<app-student-form [student]="student" (saveEvent)="onSaveEvent($event)" (cleanEvent)="onCleanEvent()"></app-student-form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">RM</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Turma</th>
+      <th scope="col">Semestre</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <th scope="row">{{student.id}}</th>
+      <td>{{student.name}}</td>
+      <td>{{student.school_class}}</td>
+      <td>{{student.semester}}</td>
+      <td>{{student.cpf}}</td>
+      <td>
+        <button class="btn btn-primary me-2" (click)="edit(student)">Editar</button>
+        <button class="btn btn-danger" (click)="delete(student)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
