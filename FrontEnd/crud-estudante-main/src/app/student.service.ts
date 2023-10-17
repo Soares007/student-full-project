@@ -13,15 +13,15 @@ export class StudentService {
   getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(this.url);
   }
-  save(student: Student): Observable<Student>{
+  save(student: Student): Observable<Student> {
     return this.http.post<Student>(this.url, student);
-    }
+  }
 
-    update(student: Student): Observable<Student>{
-      return this.http.put<Student>(`${this.url}/${student.id}`, student);
-      }
+  update(student: Student): Observable<Student> {
+    return this.http.put<Student>(`${this.url}/${student.id}`, student);
+  }
 
-    delete(student: Student): Observable<void>{
-      return this.http.delete<void>(`${this.url}/${student.id}`);
-      }
+  delete(student: Student): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${student.id}`);
+  }
 }

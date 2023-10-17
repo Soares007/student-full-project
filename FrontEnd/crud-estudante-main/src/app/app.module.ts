@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { StudentFormComponent } from './estudante-form/student-form.component';
+import { StudentFormComponent } from './student-form/student-form.component';
 
 @NgModule({
   declarations: [
